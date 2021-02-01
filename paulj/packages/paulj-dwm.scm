@@ -17,4 +17,4 @@
      (sha256
       (base32 "ke7zu7ukxms5gw5oym7ljzxvwbexwffjnkk3avctyo7s6stcsn3a"))))
    (home-page "https://github.com/paul-jewell/paulj-dwm")
-   (synopsys "paulj version of dwm")))
+   (synopsis "paulj version of dwm")))
