@@ -13,7 +13,7 @@
      (method git-fetch)
      (uri (git-reference
            (url "https://github.com/paulj/paulj-dwm.git")
-           (commit "")))
+           (commit "61bb8b2241d4db08bea4261c82e27cd9797099e7")))
      (sha256
       (base32 ""))))
    (home-page "https://github.com/pauljewell/paulj-dwm")
