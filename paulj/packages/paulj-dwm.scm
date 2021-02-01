@@ -15,6 +15,6 @@
            (url "https://github.com/paul-jewell/paulj-dwm.git")
            (commit "61bb8b2241d4db08bea4261c82e27cd9797099e7")))
      (sha256
-      (base32 "ke7zu7ukxms5gw5oym7ljzxvwbexwffjnkk3avctyo7s6stcsn3a"))))
+      (base32 "1j3vly8dln35vnwnwwlaa8ql9fmnlmrv43jcyc8dbfhfxiw6f34l"))))
    (home-page "https://github.com/paul-jewell/paulj-dwm")
    (synopsis "paulj version of dwm")))
