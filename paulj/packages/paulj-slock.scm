@@ -2,7 +2,7 @@
   #:use-module (gnu packages suckless)
   #:use-module (guix git-download)
   #:use-module (guix packages)
-  #:use-module (paulj-packages))
+  #:use-module (paulj packages))
 
 (define-public paulj-slock
   (package
