@@ -13,7 +13,6 @@
      (method git-fetch)
      (uri (git-reference
            (url "https://github.com/paul-jewell/paulj-dmenu.git")
-           (branch "paulj")
            (commit "1a13d0465d1a6f4f74bc5b07b04c9bd542f20ba6")))
      (sha256
       (base32 "0gjjbh49j85rpbmiqj236g4c1zb1h8xh41mcjsvnzgwn72893mk6"))))

@@ -13,7 +13,6 @@
      (method git-fetch)
      (uri (git-reference
            (url "https://github.com/paul-jewell/paulj-slock.git")
-           (branch "paulj")
            (commit "35633d45672d14bd798c478c45d1a17064701aa9")))
      (sha256
       (base32 "1zys661530nsmap9invvggbmh6djqfzwiq0wyc9x600zn1yg4h3z"))))
