@@ -13,8 +13,8 @@
      (method git-fetch)
      (uri (git-reference
            (url "https://github.com/paul-jewell/paulj-dwm.git")
-           (commit "e9c8293e8fce06e9caeee3159938eb7d515c6976")))
+           (commit "1543c805d68314135c010ceefa4e692c5e675cd0")))
      (sha256
-      (base32 "0s92c057m3jqhx542h21a4r5hvy4gv63qjiv8p1f9la1pq75caa3"))))
+      (base32 "1fnznfmhcwx473nx2aavnp3d9h1xwcaicg9x6j2m5pr8fq97177l"))))
    (home-page "https://github.com/paul-jewell/paulj-dwm.git")
    (synopsis "A version of dwm, configured by paulj")))
