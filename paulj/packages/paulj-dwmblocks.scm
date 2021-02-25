@@ -17,7 +17,15 @@
              (string-append "PREFIX=" %output))
        #:phases
        (modify-phases %standard-phases
-         (delete 'configure))))
+         (replace 'configure
+           (lambda _
+             (substitute* "Makefile" (("\\$\\{CC\\}") "gcc"))
+             #t))
+         (replace 'install
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let ((out (assoc-ref outputs "out")))
+               (invoke "make" "install"
+                       (string-append "DESTDIR=" out) "PREFIX=")))))))
     (home-page "https://github.com/paul-jewell/paulj-dwmblocks.git")
     (synopsis "Status bar manager for dwm")
     (description "dwmblocks is a status bar manager for dwm window manager.")
