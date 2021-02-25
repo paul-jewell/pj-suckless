@@ -13,12 +13,10 @@
     (build-system gnu-build-system)
     (arguments
         `(#:tests? #f
-                   #:make-flags
-                   (list (string-append "CC=" ,(cc-for-target))
-                         (string-append "PREFIX=" %output))
-                   #:phases)
-        (modify-phases %standard-phases
-          (delete 'configure))) ;; No configure stage
+          #:make-flags (list (string-append "CC=" ,(cc-for-target))
+                             (string-append "PREFIX=" %output))
+          #:phases (modify-phases %standard-phases
+                     (delete 'configure)))) ;; No configure stage
                 ;; (modify-phases %standard-phases
                 ;;   (replace 'configure
                 ;;     (lambda _
