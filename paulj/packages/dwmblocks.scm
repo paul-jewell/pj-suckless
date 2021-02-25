@@ -12,8 +12,8 @@
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/paul-jewell/dwmblocks.git"
-                  (commit "747067e64e64c2723c5a71f518498c2162195d45"))))
+             (url "https://github.com/paul-jewell/dwmblocks.git")
+             (commit "747067e64e64c2723c5a71f518498c2162195d45")))
        (sha256
         (base32 "05ixpad1xh3nmcm5vfkv0x04jys56wwqsgiy41pbd6ga5d5jq88y"))))
     (build-system gnu-build-system)
