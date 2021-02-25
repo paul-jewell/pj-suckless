@@ -4,6 +4,7 @@
   #:use-module (guix git-download)
   #:use-module (guix build-system gnu)
   #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (gnu packages xorg) 
   #:use-module (guix utils)   
   #:use-module (guix packages)
   #:use-module (paulj packages))
