@@ -28,6 +28,9 @@
        (list (string-append "CC=" ,(cc-for-target))
              (string-append "PREFIX=" %output))
        #:phases (modify-phases %standard-phases (delete 'configure)))) ;; No configure stage
+    (inputs
+     `(("libx11" ,libx11)
+       ("libxft" ,libxft)))
     (home-page "https://github.com/paul-jewell/dwmblocks.git")
     (synopsis "Status bar manager for dwm")
     (description "dwmblocks is a status bar manager for dwm window manager.")
