@@ -18,9 +18,9 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/paul-jewell/dwmblocks.git")
-             (commit "747067e64e64c2723c5a71f518498c2162195d45")))
+             (commit "5f04961cbd8f31ffae9fc7a96d25adabb45522b1")))
        (sha256
-        (base32 "05ixpad1xh3nmcm5vfkv0x04jys56wwqsgiy41pbd6ga5d5jq88y"))))
+        (base32 "16xg8ywgglxdqw3hxqkyl5671i33vw9ql11k534r8dg9bq54yz33"))))
     (build-system gnu-build-system)
     (arguments
      `(#:tests? #f
