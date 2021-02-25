@@ -31,4 +31,4 @@
     (home-page "https://github.com/paul-jewell/dwmblocks.git")
     (synopsis "Status bar manager for dwm")
     (description "dwmblocks is a status bar manager for dwm window manager.")
-    (license license:isc)))
+    (license license:isc)))))
