@@ -1,3 +1,9 @@
+(define-module (paulj packages dwmblocks)
+  #:use-module (gnu packages suckless)
+  #:use-module (guix git-download)
+  #:use-module (guix packages)
+  #:use-module (paulj packages))
+
 (define-public dwmblocks
   (package
     (name "dwmblocks")
@@ -12,23 +18,11 @@
         (base32 "05ixpad1xh3nmcm5vfkv0x04jys56wwqsgiy41pbd6ga5d5jq88y"))))
     (build-system gnu-build-system)
     (arguments
-        `(#:tests? #f
-          #:make-flags (list (string-append "CC=" ,(cc-for-target))
-                             (string-append "PREFIX=" %output))
-          #:phases (modify-phases %standard-phases
-                     (delete 'configure)))) ;; No configure stage
-                ;; (modify-phases %standard-phases
-                ;;   (replace 'configure
-                ;;     (lambda _
-                ;;       (substitute* "Makefile" (("\\$\\{CC\\}") "gcc"))
-                ;;       #t))
-                ;;   (replace 'install
-                ;;     (lambda* (#:key outputs #:allow-other-keys)
-                ;;       (let ((out (assoc-ref outputs "out")))
-                ;;         (invoke "make" "install"
-                ;;                 (string-append "DESTDIR=" out) "PREFIX=")))))))
-
-
+     `(#:tests? #f
+       #:make-flags
+       (list (string-append "CC=" ,(cc-for-target))
+             (string-append "PREFIX=" %output))
+       #:phases (modify-phases %standard-phases (delete 'configure)))) ;; No configure stage
     (home-page "https://github.com/paul-jewell/dwmblocks.git")
     (synopsis "Status bar manager for dwm")
     (description "dwmblocks is a status bar manager for dwm window manager.")
