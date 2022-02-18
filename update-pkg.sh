@@ -1,6 +1,6 @@
 #!/usr/bin/env sh 
 
-suckless_root="/home/paul/projects/guix/pj-suckless"
+suckless_root="/home/paul/git/pj-suckless/"
 for repo in paulj-dmenu paulj-dwm paulj-slock paulj-st dwmblocks
     do 	
         git_hash=$(git -C ~/git/$repo log -n 1 --format=format:"%H") 	
