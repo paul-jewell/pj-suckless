@@ -1,4 +1,4 @@
-(define-module (pj packages slime-swank)
+(define-module (pj packages sbcl-slime-swank)
   #:use-module (gnu packages)
   #:use-module (guix gexp)
   #:use-module ((guix licenses) #:prefix license:)
