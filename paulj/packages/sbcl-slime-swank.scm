@@ -63,57 +63,58 @@
   #:use-module (srfi srfi-1)
   #:use-module (srfi srfi-19))
 
-(package
-  (name "pj-sbcl-slime-swank")
-  (version "2.27")
-  (source
-   (origin
-     (file-name (git-file-name "slime-swank" version))
-     (method git-fetch)
-     (uri (git-reference
-           (url "https://github.com/slime/slime/")
-           (commit (string-append "v" version))))
-     (sha256
-      (base32 "1s5mbljlz22pb90gwbd380nighkz6gdxl77hc08gri7wwr5gy5n2"))
-     (modules '((guix build utils)))
-     (snippet
-      ;; The doc folder drags `gawk' into the closure.  Doc is already
-      ;; provided by emacs-slime.
-      `(begin
-         (delete-file-recursively "doc")
-         #t))))
-  (build-system asdf-build-system/sbcl)
-  (arguments
-   '(#:asd-systems '("swank")
-     #:phases
-     (modify-phases %standard-phases
-       (add-after 'unpack 'set-fasl-directory
-         (lambda* (#:key outputs #:allow-other-keys)
-           (let* ((out (assoc-ref outputs "out"))
-                  (lib-dir (string-append out "/lib/common-lisp/"
-                                          (%lisp-type)
-                                          "/slime-swank/")))
-             ;; Use the ASDF registry instead of Swank's default that places
-             ;; the .fasl files in ~/.slime.
-             (substitute* "swank.asd"
-               (("\\(load \\(asdf::component-pathname f\\)\\)" all)
-                (string-append
-                 all "\n"
-                 "(setf (symbol-value"
-                 "(read-from-string \"swank-loader::*fasl-directory*\"))"
-                 "\"" lib-dir "\")")))
-             (substitute* "swank-loader.lisp"
-               (("\\(probe-file fasl\\)" all)
-                ;; Do not try to delete Guix store files.
-                (string-append
-                 all "\n"
-                 " (not (equal (subseq (pathname-directory fasl) 1 3)"
-                 " '(\"gnu\" \"store\"))) ; XXX: GUIX PATCH")))))))))
-  (inputs (list sbcl-trivial-cltl2))
-  (home-page "https://github.com/slime/slime")
-  (synopsis "Common Lisp Swank server")
-  (description
-   "This is only useful if you want to start a Swank server in a Lisp
+(define-public pj-sbcl-slime-swank
+  (package
+    (name "pj-sbcl-slime-swank")
+    (version "2.27")
+    (source
+     (origin
+       (file-name (git-file-name "slime-swank" version))
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/slime/slime/")
+             (commit (string-append "v" version))))
+       (sha256
+        (base32 "1s5mbljlz22pb90gwbd380nighkz6gdxl77hc08gri7wwr5gy5n2"))
+       (modules '((guix build utils)))
+       (snippet
+        ;; The doc folder drags `gawk' into the closure.  Doc is already
+        ;; provided by emacs-slime.
+        `(begin
+           (delete-file-recursively "doc")
+           #t))))
+    (build-system asdf-build-system/sbcl)
+    (arguments
+     '(#:asd-systems '("swank")
+       #:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'set-fasl-directory
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let* ((out (assoc-ref outputs "out"))
+                    (lib-dir (string-append out "/lib/common-lisp/"
+                                            (%lisp-type)
+                                            "/slime-swank/")))
+               ;; Use the ASDF registry instead of Swank's default that places
+               ;; the .fasl files in ~/.slime.
+               (substitute* "swank.asd"
+                 (("\\(load \\(asdf::component-pathname f\\)\\)" all)
+                  (string-append
+                   all "\n"
+                   "(setf (symbol-value"
+                   "(read-from-string \"swank-loader::*fasl-directory*\"))"
+                   "\"" lib-dir "\")")))
+               (substitute* "swank-loader.lisp"
+                 (("\\(probe-file fasl\\)" all)
+                  ;; Do not try to delete Guix store files.
+                  (string-append
+                   all "\n"
+                   " (not (equal (subseq (pathname-directory fasl) 1 3)"
+                   " '(\"gnu\" \"store\"))) ; XXX: GUIX PATCH")))))))))
+    (inputs (list sbcl-trivial-cltl2))
+    (home-page "https://github.com/slime/slime")
+    (synopsis "Common Lisp Swank server")
+    (description
+     "This is only useful if you want to start a Swank server in a Lisp
 processes that doesn't run under Emacs.  Lisp processes created by
 @command{M-x slime} automatically start the server.")
-  (license (list license:gpl2+ license:public-domain)))
+    (license (list license:gpl2+ license:public-domain))))
