@@ -13,9 +13,9 @@
      (method git-fetch)
      (uri (git-reference
            (url "https://github.com/paul-jewell/paulj-st.git")
-           (commit "4ef0cbd8b9371f37f7d02ef37b5378b879e6b8bf")))
+           (commit "7e68b121ec178f21d6d05b190ed217dfd04f9ca9")))
      (sha256
-      (base32 "1x9j2xm28b0hd1d5mmsjh4703wjdyv1hprha453kk5lz0w43057p"))))
+      (base32 "1xgiwr894h8mvplyzlb1wlnjrgb4nsrf1w27bliiw4fg2py0ps0d"))))
    (home-page "https://github.com/paul-jewell/paulj-st.git")
    (synopsis "paulj version of st")))
 
